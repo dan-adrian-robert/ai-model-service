@@ -1,3 +1,8 @@
 export type BuildMessagePayload = {
-  message: string;
+  messages: Array<TGPTMessage>;
+};
+
+export type TGPTMessage = {
+  role: 'user' | 'system' | 'assistant';
+  content: string;
 };

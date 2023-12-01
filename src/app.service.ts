@@ -13,10 +13,10 @@ export class AppService {
     this.openAiService = new OpenAI({ apiKey });
   }
   async buildMessage(body: BuildMessagePayload): Promise<any> {
-    const { message } = body;
+    const { messages } = body;
 
     const response = await this.openAiService.chat.completions.create({
-      messages: [{ role: 'system', content: message }],
+      messages,
       model: 'gpt-3.5-turbo',
     });
 
